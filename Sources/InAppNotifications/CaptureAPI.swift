@@ -11,7 +11,7 @@ import OrttoSDKCore
 
 struct CaptureAPI {
     static func fetchWidgets(_ body: WidgetsGetRequest, completion: @escaping (WidgetsResponse) -> Void) {
-        guard let url = URL(string: "\(Ortto.shared.apiEndpoint!)/-/widgets/get") else { return }
+        guard let url = URL(string: "\(Ortto.shared.apiEndpoint!)/widgets/get") else { return }
 
         Ortto.log().debug("WebViewController@fetchWidgets.url: \(url)")
 
