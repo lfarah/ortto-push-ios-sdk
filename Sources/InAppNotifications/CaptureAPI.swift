@@ -35,7 +35,7 @@ struct CaptureAPI {
             completion(widgetsResponse)
 
         case .failure(let error):
-            let status = response.response?.statusCode.map(String.init) ?? "nil"
+            let status = "\(response.response?.statusCode ?? -1)"
             let bodyString: String = {
                 guard let data = response.data, !data.isEmpty else { return "<empty>" }
                 return String(data: data, encoding: .utf8) ?? "<non-utf8 body: \(data.count) bytes>"
@@ -49,5 +49,6 @@ struct CaptureAPI {
 
             completion(WidgetsResponse.default)
             }
+                                                                           }
     }
 }
