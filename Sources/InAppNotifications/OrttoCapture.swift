@@ -261,7 +261,7 @@ public class OrttoCapture: ObservableObject, Capture {
                     // Only start timer if promise is still pending
                     if self.currentWidgetResolver != nil {
                         self.jsInteractionTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] _ in
-                            self?.handleJsTimeout()
+                      //      self?.handleJsTimeout()
                         }
                     }
                 }
