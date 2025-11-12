@@ -32,6 +32,7 @@ struct CaptureAPI {
             .responseDecodable(of: WidgetsResponse.self, decoder: decoder) { response in
         switch response.result {
         case .success(let widgetsResponse):
+            Ortto.log().debug("widgetsResponse")
             completion(widgetsResponse)
 
         case .failure(let error):
@@ -41,11 +42,11 @@ struct CaptureAPI {
                 return String(data: data, encoding: .utf8) ?? "<non-utf8 body: \(data.count) bytes>"
             }()
             let urlString = response.request?.url?.absoluteString ?? "<unknown url>"
-            print("❌ Widgets request failed")
-            print("URL: \(urlString)")
-            print("Status: \(status)")
-            print("Error: \(error)")                  // AFError with full context
-            print("Body: \(bodyString)")
+            Ortto.log().debug("❌ Widgets request failed")
+            Ortto.log().debug("URL: \(urlString)")
+            Ortto.log().debug("Status: \(status)")
+            Ortto.log().debug("Error: \(error)")                  // AFError with full context
+            Ortto.log().debug("Body: \(bodyString)")
 
             completion(WidgetsResponse.default)
             }
